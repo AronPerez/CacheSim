@@ -4,6 +4,9 @@ import sys
 import getopt
 import math
 import argparse
+import re
+import os
+
 
 #python3 Mile1.py -f Trace1.trc -s 512 -b 16 -a 8 -r Random
 
@@ -24,6 +27,8 @@ cacheSize = ''
 blockSize = ''
 mapWay = ''
 repPolicy = ''
+match = ''
+#regex = re.compile("EIP\s\(([0-9]{2})\):\s([^\s]+)")
 #argv = str(sys.argv[1:])
 
 def main(trace, cachesize, blocksize, associativity, replacement):
@@ -64,6 +69,19 @@ def main(trace, cachesize, blocksize, associativity, replacement):
     print ('Overhead Size:', overheadSize, 'bytes')
     print ('Implemention Memory Size:', "{:.2f}".format(impMemKBSize), 'KB (' + str(impMemByteSize), 'Bytes)')
     print ('Cost: $', "{:.2f}".format(0.07*impMemKBSize))
+    print('')
+    # Output data
+    f = open(traceFile, 'r')
+    lines = f.read()
+    match = re.findall('EIP\s\(([0-9]{2})\):\s([^\s]+)', lines)
+    print(match)
+    #close
+    #with open(traceFile) as f:
+    #    for line in f:
+    #        result = regex.search(line)
+    #print(result)
+
+
 
 if __name__ == '__main__':
     main(args.trace, args.cachesize, args.blocksize, args.associativity, args.replacement)
