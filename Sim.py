@@ -74,7 +74,10 @@ def main(trace, cachesize, blocksize, associativity, replacement):
     f = open(traceFile, 'r')
     lines = f.read()
     match = re.findall('EIP\s\(([0-9]{2})\):\s([^\s]+)', lines)
-    print(match)
+
+    for i in range(20):
+        print('0x' + match[i][1] + ':' + match[i][0])
+
     #close
     #with open(traceFile) as f:
     #    for line in f:
