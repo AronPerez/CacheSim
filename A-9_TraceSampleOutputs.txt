@@ -1,0 +1,133 @@
+CS3853:CacheSim_v2.04.exe -f A-9_new_1.5.pdf.trc -s 512 -b 16 -a 2 -r RR
+
+
+Cache Simulator - CS 3853 - Instructor Version: 2.04
+
+Trace File: A-9_new_1.5.pdf.trc
+
+***** Cache Input Parameters *****
+
+Cache Size:                     512 KB
+Block Size:                     16 bytes
+Associativity:                  2
+Replacement Policy:             Round Robin
+
+***** Cache Calculated Values *****
+
+Total # Blocks:                 32768
+Tag Size:                       14 bits
+Index Size:                     14 bits
+Total # Rows:                   16384
+Overhead Size:                  61440  bytes
+Implementation Memory Size:     572.00 KB  (585728 bytes)
+Cost:                           $40.04
+
+
+***** CACHE SIMULATION RESULTS  *****
+
+Total Cache Accesses:   387850  (350466 addresses)
+Cache Hits:             374959
+Cache Misses:           12891
+--- Compulsory Misses:     11686
+--- Conflict Misses:       1205
+
+
+***** *****  CACHE HIT & MISS RATE:  ***** *****
+
+Hit  Rate:              96.6763%
+Miss Rate:              3.3237%
+CPI:                    4.58 Cycles/Instruction  (260322)
+Unused Cache Space:     368.01 KB / 572.00 KB = 64.34%  Waste: $25.76
+Unused Cache Blocks:    21082 / 32768
+
+-------------------------------------------------------------------------------------
+
+
+CS3853:CacheSim_v2.04.exe -f A-9_new_1.5.pdf.trc -s 128 -b 4 -a 8 -r RR
+
+
+Cache Simulator - CS 3853 - Instructor Version: 2.04
+
+Trace File: A-9_new_1.5.pdf.trc
+
+***** Cache Input Parameters *****
+
+Cache Size:                     128 KB
+Block Size:                     4 bytes
+Associativity:                  8
+Replacement Policy:             Round Robin
+
+***** Cache Calculated Values *****
+
+Total # Blocks:                 32768
+Tag Size:                       18 bits
+Index Size:                     12 bits
+Total # Rows:                   4096
+Overhead Size:                  77824  bytes
+Implementation Memory Size:     204.00 KB  (208896 bytes)
+Cost:                           $14.28
+
+
+***** CACHE SIMULATION RESULTS  *****
+
+Total Cache Accesses:   482641  (350466 addresses)
+Cache Hits:             442617
+Cache Misses:           40024
+--- Compulsory Misses:     30645
+--- Conflict Misses:       9379
+
+
+***** *****  CACHE HIT & MISS RATE:  ***** *****
+
+Hit  Rate:              91.7073%
+Miss Rate:              8.2927%
+CPI:                    4.66 Cycles/Instruction  (260322)
+Unused Cache Space:     13.22 KB / 204.00 KB = 6.48%  Waste: $0.93
+Unused Cache Blocks:    2123 / 32768
+
+-------------------------------------------------------------------------------------
+
+CS3853:CacheSim_v2.04.exe -f A-9_new_1.5.pdf.trc -s 8 -b 8 -a 2 -r RND
+
+
+Cache Simulator - CS 3853 - Instructor Version: 2.04
+
+Trace File: A-9_new_1.5.pdf.trc
+
+***** Cache Input Parameters *****
+
+Cache Size:                     8 KB
+Block Size:                     8 bytes
+Associativity:                  2
+Replacement Policy:             Random
+
+***** Cache Calculated Values *****
+
+Total # Blocks:                 1024
+Tag Size:                       20 bits
+Index Size:                     9 bits
+Total # Rows:                   512
+Overhead Size:                  2688   bytes
+Implementation Memory Size:     10.63  KB  (10880 bytes)
+Cost:                           $0.74
+
+
+***** CACHE SIMULATION RESULTS  *****
+
+Total Cache Accesses:   420288  (350466 addresses)
+Cache Hits:             365462
+Cache Misses:           54826
+--- Compulsory Misses:     1024
+--- Conflict Misses:       53802
+
+
+***** *****  CACHE HIT & MISS RATE:  ***** *****
+
+Hit  Rate:              86.9551%
+Miss Rate:              13.0449%
+CPI:                    5.44 Cycles/Instruction  (260322)
+Unused Cache Space:     0.00 KB / 10.63 KB = 0.00%  Waste: $0.00
+Unused Cache Blocks:    0 / 1024
+
+
+
