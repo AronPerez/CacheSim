@@ -33,7 +33,7 @@ def print_calculated_values(num_blocks, tag_size, indices, index_size, overhead,
     print ()
 
 
-def print_results(cache_accesses, cache_hits, conflict_misses, compulsory_misses):
+def print_results(cache_accesses, cache_hits, conflict_misses, compulsory_misses, num_blocks, block_size, overhead, associativity, total_size, cycle_total, intruction_count):
     print ('***** Cache Simulation Results *****')
     print ()
     print ('{:24}'.format('Total Cache Accesses:') + str(cache_accesses))
@@ -48,6 +48,19 @@ def print_results(cache_accesses, cache_hits, conflict_misses, compulsory_misses
     hit_rate = 100 - miss_rate
     miss_rate_string = 'Cache Miss Rate: %.4f' % miss_rate
     hit_rate_string = 'Cache Hit Rate: %.4f' % hit_rate
+    Unused_KB = (((num_blocks)-(compulsory_misses)) * ((block_size*.001)+(overhead*.001)))/(associativity*block_size)
+    Unused_string = '%.2f' % Unused_KB
+    implementation_size = total_size/1024
+    implementation_string = '%.2f' % implementation_size
+    Unused_percent = (Unused_KB/implementation_size)*100
+    Unused_percent_string = '%.2f' % Unused_percent
+    Waste_cost = .07*Unused_KB
+    Waste_string = '%.2f' % Waste_cost
+    Unused_blocks = int((Unused_percent/100)*num_blocks)
+    CPI_int = cycle_total/intruction_count
+    CPI_string = '%.2f' % CPI_int
     print (hit_rate_string + '%')
     print (miss_rate_string + '%')
-    print ()
+    print ('{:24}'.format('CPI: ') + CPI_string + ' Cycles/Instruction')
+    print ('{:24}'.format('Unused Cache Space: ') + Unused_string + 'KB / ' + implementation_string + 'KB = ' + Unused_percent_string + '%  Waste: $' + Waste_string)
+    print ('{:24}'.format('Unused Cache Blocks: ') + str(Unused_blocks) + ' / ' + str(num_blocks))
