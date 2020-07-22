@@ -47,12 +47,14 @@ def bin_to_dec(bin_value):
 def parse_file(file):
     empty = '0x00000000'
     cache_access_list = []
+    intruction_count = 0
     try:
         with open(file, 'r') as f:
             for line in f:
                 info = re.match(r'^.+\((\d{2})\).\s(.{8}).+$', line)
                 read_write = re.match(r'^.+:\s(\w{8}).*:\s(\w{8}).*$', line)
                 if info:
+                    intruction_count += 1
                     address = '0x' + info.group(2)
                     length = int(info.group(1))
                     cache_access_list.append(address + ',' + str(length))
@@ -67,7 +69,7 @@ def parse_file(file):
         print('Error: File was not found')
         print('Please check that the file exists and try again')
         sys.exit(2)
-    return cache_access_list
+    return cache_access_list, intruction_count
 
 
 def determine_round_robin(current_row):
