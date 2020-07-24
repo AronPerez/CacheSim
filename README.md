@@ -13,20 +13,20 @@ Matthew Rodriguez<br>
 Dennis Liu<br>
 # Project Requirements
 <p align="center">
-  <img src="https://i.imgur.com/w6si2nT.jpg" alt="Page 1" width="25%" height="25%" />
+  <img src="https://i.imgur.com/w6si2nT.jpg" alt="Page 1"/>
 </p>
 <p align="center">
-  <img src="https://i.imgur.com/pNrLLYx.jpg" alt="Page 2" width="25%" height="25%" />
+  <img src="https://i.imgur.com/pNrLLYx.jpg" alt="Page 2"/>
 </p>
 <p align="center">
-  <img src="https://i.imgur.com/x8TWec8.jpg" alt="Page 3" width="25%" height="25%" />
+  <img src="https://i.imgur.com/x8TWec8.jpg" alt="Page 3"/>
 </p>
 <p align="center">
-  <img src="https://i.imgur.com/HCEQ8QK.jpg" alt="Page 4" width="25%" height="25%" />
+  <img src="https://i.imgur.com/HCEQ8QK.jpg" alt="Page 4"/>
 </p>
 <p align="center">
-  <img src="https://i.imgur.com/MTUhg0j.jpg" alt="Page 5" width="25%" height="25%" />
+  <img src="https://i.imgur.com/MTUhg0j.jpg" alt="Page 5"/>
 </p>
 <p align="center">
-  <img src="https://i.imgur.com/0gnIoKV.jpg" alt="Page 6" width="25%" height="25%" />
+  <img src="https://i.imgur.com/0gnIoKV.jpg" alt="Page 6"/>
 </p>
