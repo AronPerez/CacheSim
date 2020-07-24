@@ -38,13 +38,14 @@ def check_cache(row, tag):
     global compulsory_misses
     global cache_hits
     global conflict_misses
-
+    global cycle_total
     for i in range(len(row)):
         block = row[i]
         if block.valid == 0:
             compulsory_misses += 1
             block.tag = tag
             block.valid = 1
+            cycle_total += (4*math.ceil(blockSize/4))
             break
         else:
             if i == len(row) - 1 and block.tag != tag:
@@ -54,13 +55,14 @@ def check_cache(row, tag):
                     random_num = util.calculate_random_number(0, (len(row) - 1))
                     row[random_num].tag = tag
                     break
-                # Round Robin
+                # - Robin
                 if args.replacement == 'RR':
                     round_robin_index = util.determine_round_robin(row)
                     row[round_robin_index].tag = tag
                     break
             elif block.tag == tag:
                 cache_hits += 1
+                cycle_total += 1
                 break
             else:
                 continue
@@ -79,6 +81,8 @@ cache_accesses = 0
 cache_hits = 0
 compulsory_misses = 0
 conflict_misses = 0
+cycle_total = 0
+intruction_count = 0
 #regex = re.compile("EIP\s\(([0-9]{2})\):\s([^\s]+)")
 #argv = str(sys.argv[1:])
 traceFile = args.trace
@@ -134,7 +138,9 @@ impMemKBSize = math.pow(2,(math.log2(impMemByteSize)-10))
 #
 #print ('Call the space for Cache Simulator...Done')
 
-cache_access_list = util.parse_file(traceFile)
+tupl = util.parse_file(traceFile)
+cache_access_list = tupl[0]
+intruction_count = tupl[1]
 
 # Create the cache access list
 cache = Cache(cacheSize, blockSize, mapWay, repPolicy)
@@ -147,4 +153,4 @@ print_util.print_formatted_header(traceFile)
 print_util.print_generic_header(cacheSize, blockSize, mapWay, repPolicy) # ***** Cache Input Parameters *****
 print_util.print_calculated_values(cache.get_num_blocks(), cache.get_tag_size(), cache.get_indices(),
                                    cache.get_index_size(), cache.get_overhead_size(), cache.get_total_size())
-print_util.print_results(cache_accesses, cache_hits, conflict_misses, compulsory_misses) # ***** Cache Simulation Results *****
+print_util.print_results(cache_accesses, cache_hits, conflict_misses, compulsory_misses, totalBlock, blockSize, overheadSize, impMemKBSize, cache.get_total_size(), cycle_total, intruction_count) # ***** Cache Simulation Results *****
